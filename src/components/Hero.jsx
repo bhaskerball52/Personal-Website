@@ -31,7 +31,7 @@ export default function Hero() {
   }, [displayText, isDeleting, currentRole, roles])
 
   return (
-    <section className="min-h-screen flex items-center justify-center text-center px-6 pt-20 pb-10">
+    <section className="min-h-screen flex items-center justify-center text-center px-6 pt-20 pb-2 md:pb-10">
       <div className="animate-fade-in">
         {/* Profile Picture */}
         <div className="w-40 h-40 mx-auto mb-8 rounded-full bg-neutral-800 border-4 border-blue-500/30 overflow-hidden group cursor-pointer transition-all duration-700 ease-out hover:animate-spin-slow hover:border-blue-400 hover:shadow-2xl hover:shadow-blue-500/40">
