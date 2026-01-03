@@ -8,7 +8,9 @@ export default function Skills() {
     { name: 'Astronomy', color: 'blue' },
     { name: 'Differential Calculus', color: 'purple' },
     { name: 'Integral Calculus', color: 'pink' },
-    { name: 'Classical Mechanics', color: 'indigo' }
+    { name: 'Classical Mechanics', color: 'indigo' },
+    { name: 'Java', color: 'blue' },
+    { name: 'Python', color: 'purple' }
   ]
 
   const getColorClasses = (color) => {
@@ -43,7 +45,7 @@ export default function Skills() {
   }, [])
 
   return (
-    <section ref={sectionRef} id="skills" className="py-24 px-6">
+    <section ref={sectionRef} id="skills" className="py-6 px-6">
       <div className="max-w-5xl mx-auto">
         <h2 
           className={`text-4xl font-bold mb-12 text-center transition-all duration-700 ${
