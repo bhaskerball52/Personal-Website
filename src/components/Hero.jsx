@@ -1,43 +1,50 @@
-import { useState, useEffect, useRef } from 'react'
+import { useState, useEffect } from 'react'
 
 export default function Hero() {
-  const roles = ['Athlete', 'Boy Scout', 'Researcher', 'Musician', 'Student']
+  const roles = ['Researcher', 'Boy Scout', 'Athlete', 'Musician', 'Student']
   const [currentRole, setCurrentRole] = useState(0)
   const [displayText, setDisplayText] = useState('')
   const [isDeleting, setIsDeleting] = useState(false)
   const [animationProgress, setAnimationProgress] = useState(0)
-  const scrollAccumulator = useRef(0)
-  const isAnimating = useRef(true)
 
   const name = "Bhasker Vasudevan"
   const letters = name.split('')
 
   useEffect(() => {
-    const handleWheel = (e) => {
-      if (isAnimating.current) {
-        e.preventDefault()
-        
-        // Accumulate scroll with sensitivity adjustment
-        scrollAccumulator.current += e.deltaY * 0.8
-        
-        // Clamp between 0 and max (allows scrolling backwards)
-        scrollAccumulator.current = Math.max(0, Math.min(scrollAccumulator.current, 2000))
-        
-        // Convert to progress (0-1)
-        const progress = scrollAccumulator.current / 2000
-        setAnimationProgress(progress)
-        
-        // Animation completes at 100%
-        if (progress >= 0.99) {
-          isAnimating.current = false
-        }
+    let startTime = null
+    let animationFrameId = null
+
+    const animate = (timestamp) => {
+      if (!startTime) startTime = timestamp
+      const elapsed = timestamp - startTime
+      
+      // Animation takes 5 seconds total
+      const progress = Math.min(elapsed / 3000, 1)
+      setAnimationProgress(progress)
+      
+      if (progress < 1) {
+        animationFrameId = requestAnimationFrame(animate)
+      } else {
+        // Unlock scroll when animation completes
+        document.body.style.overflow = 'auto'
       }
     }
 
-    window.addEventListener('wheel', handleWheel, { passive: false })
+    // Lock scroll immediately
+    document.body.style.overflow = 'hidden'
     
+    // Start animation after a brief delay
+    const startDelay = setTimeout(() => {
+      animationFrameId = requestAnimationFrame(animate)
+    }, 500)
+
     return () => {
-      window.removeEventListener('wheel', handleWheel)
+      clearTimeout(startDelay)
+      if (animationFrameId) {
+        cancelAnimationFrame(animationFrameId)
+      }
+      // Make sure scroll is unlocked on cleanup
+      document.body.style.overflow = 'auto'
     }
   }, [])
 
@@ -153,18 +160,19 @@ export default function Hero() {
   const contentOpacity = animationProgress > 0.85 ? (animationProgress - 0.85) / 0.15 : 0
 
   return (
-    <section className="min-h-screen flex items-center justify-center text-center px-6 pb-64 relative">
+    <section className="min-h-screen flex items-start justify-center text-center px-6 pb-32 pt-32 relative">
       <div className="w-full max-w-4xl">
         {/* 3D Name Animation */}
         <div 
-          className="perspective-container mb-8"
+          className="perspective-container"
           style={{
             perspective: '2000px',
             perspectiveOrigin: '50% 50%',
             minHeight: '200px',
             display: 'flex',
             alignItems: 'center',
-            justifyContent: 'center'
+            justifyContent: 'center',
+            marginBottom: '8rem'
           }}
         >
           <h1 className="text-5xl md:text-7xl font-bold preserve-3d" style={{ fontWeight: 900, position: 'relative' }}>
