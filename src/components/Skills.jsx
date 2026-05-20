@@ -45,7 +45,7 @@ export default function Skills() {
   }, [])
 
   return (
-    <section ref={sectionRef} id="skills" className="py-6 px-6">
+    <section ref={sectionRef} id="skills" className="py-16 px-6">
       <div className="max-w-5xl mx-auto">
         <h2 
           className={`text-4xl font-bold mb-12 text-center transition-all duration-700 ${
