@@ -7,7 +7,13 @@ import Footer from './components/Footer'
 
 export default function App() {
   return (
-    <div className="bg-gradient-to-br from-indigo-950 via-purple-900 to-pink-900 text-neutral-100 min-h-screen font-sans scroll-smooth">
+    <div
+      className="text-neutral-100 min-h-screen font-sans scroll-smooth"
+      style={{
+        background:
+          'linear-gradient(to bottom, #0d1b3d 0%, #2d1f4a 16%, #5b2950 32%, #a83d3d 48%, #e07842 60%, #f5b169 70%, #2a1f2e 84%, #0c0a14 100%)'
+      }}
+    >
       <Navbar />
       <Hero />
       <Projects />

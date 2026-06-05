@@ -195,12 +195,12 @@ export default function Hero() {
           inset: 0;
           transform-style: preserve-3d;
           animation: galaxy-spin 14s linear infinite;
-          animation-play-state: paused;
+          animation-play-state: running;
           z-index: 1;
         }
 
         .galaxy-wrapper:hover .galaxy-orbit {
-          animation-play-state: running;
+          animation-play-state: paused;
         }
 
         @keyframes galaxy-spin {
