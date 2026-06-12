@@ -70,7 +70,7 @@ export default function Projects() {
                 Hidden Universe
               </h3>
               <p className="text-neutral-400">
-                Stunning 3D simulations of deep space objects such as Dark Matter and Black Holes
+                Stunning 3D simulations of deep space objects such as Dark Matter and Black Holes with hand motion detection and interactive controls
               </p>
             </div>
           </a>
