@@ -3,7 +3,8 @@
     "allow": [
       "Bash(find ~/Downloads ~/Desktop ~/Pictures -maxdepth 3 -iname \"*.jpg\" -mtime -1 -not -path \"*Caches*\" 2>/dev/null | head -20)",
       "Read(//Users/vasukrishnamurthy/Downloads/**)",
-      "Bash(cp ~/Downloads/profile.jpg /Users/vasukrishnamurthy/Documents/GitHub/Personal-Website/public/profile.jpg && ls -la /Users/vasukrishnamurthy/Documents/GitHub/Personal-Website/public/profile.jpg)"
+      "Bash(cp ~/Downloads/profile.jpg /Users/vasukrishnamurthy/Documents/GitHub/Personal-Website/public/profile.jpg && ls -la /Users/vasukrishnamurthy/Documents/GitHub/Personal-Website/public/profile.jpg)",
+      "Bash(git push *)"
     ],
     "additionalDirectories": [
       "/Users/vasukrishnamurthy/Downloads"
