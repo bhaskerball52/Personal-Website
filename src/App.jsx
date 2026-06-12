@@ -4,6 +4,7 @@ import Projects from './components/Projects'
 import Skills from './components/Skills'
 import Contact from './components/Contact'
 import Footer from './components/Footer'
+import { Analytics } from "@vercel/analytics/next"
 
 export default function App() {
   return (
