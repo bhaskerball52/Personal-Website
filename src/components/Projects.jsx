@@ -59,7 +59,7 @@ export default function Projects() {
           </a>
 
           <a
-            href="https://hidden-universe-7ond.vercel.app/"
+            href="https://www.hiddenuniverse.space/"
             target="_blank"
             rel="noopener noreferrer"
             className="group relative block bg-neutral-900/50 rounded-xl p-8 border border-neutral-700 hover:border-blue-400 transition-all duration-300 hover:shadow-2xl hover:shadow-blue-500/40 hover:-translate-y-2"
